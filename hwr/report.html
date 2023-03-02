@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="images/logo.png">
+    <title>UiA - Rapport</title>
+    <style>
+body {
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(255, 255, 255);
+}
+
+.header {
+  font-weight: bold;
+}
+
+/* Bakgrunnsfarge bak navigasjonen */
+.topnav {
+  background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+  overflow: hidden;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2)
+}
+
+/* Endrer linkene i navigasjonen */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Endrer fargen når man holder over en link */
+.topnav a:hover {
+  text-decoration-line: underline;
+}
+
+/* Farge på aktiv side */
+.topnav a.active {
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 60px;
+  background: #090961;
+  color: #fff;
+  padding: 10px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2)
+} 
+
+.footerCopy {
+    position: absolute;
+    width:100%;
+    bottom:0;
+    text-align: center;
+}
+
+footer img {
+  position: absolute;
+  right: 30px;
+  bottom: 15px;
+}
+
+.header {
+  text-align: left;
+  background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+  height: 10px;
+  width: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 1%;
+  color: #fff;
+  font-size: 20px;
+}
+        /* Søkefunksjon */
+        #searchText {
+				float: right;
+				padding: 6px;
+				border: none;
+				font-size: 17px;
+        position: absolute; 
+        top: 25px; 
+        right: 363px;
+			}
+
+			#searchBtn {
+				float: right;
+				border: none;
+				background-color: #151589;
+				font-size: 16px;
+				cursor: pointer;
+				height: 31.5px;
+				width: 50px;
+				border: none;
+				color: white;
+				align-items: center;
+        position: absolute; 
+        top: 25px; 
+        right: 310px;
+			}
+
+			#searchBtn:hover {
+				background-color: #222290;
+				color: #fff;
+      }
+
+      .btn {
+        background: transparent;
+        border: 0;
+        outline: none;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 500;
+        border-radius: 30px;
+        color: rgb(255, 255, 255);
+        position: absolute; 
+        top: 0px; 
+        right: 0px;
+      }
+
+      .btn:hover {
+        text-decoration: underline;
+      }
+
+      .footerText a {
+        color: white;
+        text-align: left;
+      }
+
+      #myCanvas {
+      display: flex;
+      margin: auto;
+      background: #090979;
+    }
+
+    .headerText {
+    text-align: center;
+    }
+
+    .headerText a {
+      text-decoration: none;
+      color: #090979;
+      font-weight: bold;
+    }
+
+    table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    margin-right: auto;    
+    }
+
+    table thead tr {
+    background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+    color: #ffffff;
+    text-align: left;
+    }
+
+    table th,
+    table td {
+    padding: 12px 15px;
+    }
+
+    table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    }
+
+    table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+    }
+
+    table tbody tr:last-of-type {
+    border-bottom: 2px solid #090979;
+    }
+
+    table tbody tr.active-row {
+    font-weight: bold;
+    background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+    }
+
+    #previewCanvas {
+      text-align: center;
+    }
+
+    .data {
+      text-align: center;
+    }
+
+    #info {
+      background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+      color: white;
+      width: 200px;
+      text-align: left;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      border-radius: 5px;
+    }
+
+    #btnData {
+        width: 120px;
+        margin-top 50px;
+        padding: 10px 0;
+        background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+        color: #fff;
+        border: 0;
+        outline: none;
+        font-size: 18px;
+        border-radius: 4px;
+        cursor: pointer;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2)
+      }
+
+      #btnData:hover {
+        background-image: linear-gradient(90deg, #020024 0%, #08084a 35%, #101092 100%);
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      #text {
+        text-align: center;
+        color: #101092;
+        font-weight: bold;
+      }
+
+      #text:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+</style>
+
+</head>
+<body>
+  <div class="header">UiA Prosjekt ⇢ Felles-skapet</div>
+  <div class="topnav">
+    <a href="index.html">Forside</a>
+    <a href="form.html">Skjema</a>
+    <a class="active" href="report.html">Rapport</a>
+    <a href="calendar.html">Kalender</a>
+    <a href="about.html">Om oss</a>
+    <a href="https://github.com/Skogstad-beep/HOWWEROLL">GitHub</a>
+    <a href="https://lasapasa.github.io/flaggoppgave/">Flaggoppgave</a>
+    <a href="https://www.figma.com/file/8fJcJRzjOVUvqOquZDizvX/HowWeRoll?node-id=0%3A1&t=D3OBFuBLFlvVVMr8-1">Figma</a>
+    <input type="button" id="searchBtn" value="Søk" onclick="alertSearch()">
+    <input type="text" id="searchText" placeholder="Søk her..">
+  </div>
+
+  <div class="headerText">
+    <h2>Rapport</h2>
+    <p>Vi har valgt å bruke Canvas API for å visualisere innsamlet data. I canvas-elementet er det mulig å oppdatere elementet ved å fylle inn <b>tid + transaksjonsid</b> (som man kan motta <a href="form.html">her</a>), <br>for å visualisere data for seg selv. Vi har også valgt å vise innsamlet data i en tabell for å vise all innsamlet data på en oversiktig måte. Klikk på teksten nedenfor for å se.</p>
+    </div>
+    <p id="text">Klikk her for å se innsamlet data i tabell</p>
+
+    <div id="hidden-element" class="hidden">
+    <table>
+      <thead>
+      <tr>
+        <th>Fornavn</th>
+        <th>Etternavn</th>
+        <th>E-post</th>
+        <th>Alder</th>
+        <th>Land</th>
+        <th>Kjønn</th>
+        <th>Mat</th>
+        <th>moNa</th>
+        <th>alTe</th>
+        <th>alPo</th>
+        <th>snVi</th>
+        <th>snTe</th>
+        <th>plFo</th>
+        <th>riTe</th>
+        <th>faFl</th>
+        <th>noKo</th>
+        <th>aB</th>
+        <th>avAlko</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+    </div>
+    <br>
+  
+    <div class="data">
+      <h2>Visualiser dine data</h2>
+      <b>Lim inn ID</b> <br> <input type="text" value="" id="timetrxidPASTE" style="width: 350px">
+      <div class="results" id="results">
+          <h2>Data i json-format:</h2>
+          <pre class="data2"></pre>
+          <input type="button" id="btnData" value="Visualiser">
+          <br><br>
+      </div>
+      <div id="info"></div>
+    </div>
+      <br><br>
+      <canvas id="myCanvas" width="1000" height="1300"></canvas>
+    <br><br><br><br><br><br>
+<footer>
+  <div class="footerText">
+  <p>Koding & design av gruppe 5B</p>
+  <div class="footerCopy"><p>Opphavsrett &copy; 2022 <br> <b>Utdanningsprosjekt</b></p></div>
+  <img src="images/footerlogo.png" width="250px" id="footerlogo">
+</footer>
+
+<script>
+  
+</script>
+
+  <script>
+    function alertSearch() {
+    alert("Kun en placeholder.")
+    }
+</script>
+
+<script>
+  // Get the text and hidden element by their ID
+  var textElement = document.getElementById("text");
+  var hiddenElement = document.getElementById("hidden-element");
+
+  // Add a click event listener to the text element
+  textElement.addEventListener("click", function() {
+      // Toggle the "hidden" class on the hidden element
+      hiddenElement.classList.toggle("hidden");
+  });
+</script>
+
+<script>
+  let mineData = null;
+  // let urlHwrData = "https://bacit.info/hwr/20221107160502-afcaf1bfe6c4b42d51194007c79fbe48.json";
+      fetch("https://bacit.info/hwr/20221114135337-487061a046a7659e7c0b17a5ac794af1.json")
+      .then((response) => response.json())
+      .then((data) => {
+          mineData = data;
+          let table = document.getElementsByTagName('table');
+          let tbody = table[0].children[1];
+          tbody.children[0].children[0].innerText = mineData['fname'];
+          tbody.children[0].children[1].innerText = mineData['lname'];
+          tbody.children[0].children[2].innerText = mineData['email'];
+          tbody.children[0].children[3].innerText = mineData['age'];
+          tbody.children[0].children[4].innerText = mineData['country'];
+          tbody.children[0].children[5].innerText = mineData['gender'];
+          tbody.children[0].children[6].innerText = mineData['food'];
+          tbody.children[0].children[7].innerText = mineData['moNa'] + "%";
+          tbody.children[0].children[8].innerText = mineData['alTe'] + "%";
+          tbody.children[0].children[9].innerText = mineData['alPo'] + "%";
+          tbody.children[0].children[10].innerText = mineData['snVi'] + "%";
+          tbody.children[0].children[11].innerText = mineData['snTe'] + "%";
+          tbody.children[0].children[12].innerText = mineData['plFo'] + "%";
+          tbody.children[0].children[13].innerText = mineData['riTe'] + "%";
+          tbody.children[0].children[14].innerText = mineData['faFl'] + "%";
+          tbody.children[0].children[15].innerText = mineData['noKo'] + "%";
+          tbody.children[0].children[16].innerText = mineData['aB'] + "%";
+          tbody.children[0].children[17].innerText = mineData['avAlko'] + "%";
+       });
+
+       fetch("https://bacit.info/hwr/20221114145027-fdce5b07a9015eba61002c5df0561bcb.json")
+      .then((response) => response.json())
+      .then((data) => {
+          mineData = data;
+          let table = document.getElementsByTagName('table');
+          let tbody = table[0].children[1];
+          tbody.children[1].children[0].innerText = mineData['fname'];
+          tbody.children[1].children[1].innerText = mineData['lname'];
+          tbody.children[1].children[2].innerText = mineData['email'];
+          tbody.children[1].children[3].innerText = mineData['age'];
+          tbody.children[1].children[4].innerText = mineData['country'];
+          tbody.children[1].children[5].innerText = mineData['gender'];
+          tbody.children[1].children[6].innerText = mineData['food'];
+          tbody.children[1].children[7].innerText = mineData['moNa'] + "%";
+          tbody.children[1].children[8].innerText = mineData['alTe'] + "%";
+          tbody.children[1].children[9].innerText = mineData['alPo'] + "%";
+          tbody.children[1].children[10].innerText = mineData['snVi'] + "%";
+          tbody.children[1].children[11].innerText = mineData['snTe'] + "%";
+          tbody.children[1].children[12].innerText = mineData['plFo'] + "%";
+          tbody.children[1].children[13].innerText = mineData['riTe'] + "%";
+          tbody.children[1].children[14].innerText = mineData['faFl'] + "%";
+          tbody.children[1].children[15].innerText = mineData['noKo'] + "%";
+          tbody.children[1].children[16].innerText = mineData['aB'] + "%";
+          tbody.children[1].children[17].innerText = mineData['avAlko'] + "%";
+       });
+
+       fetch("https://bacit.info/hwr/20221114150727-1d3261c7fae3e5427402e08e4068c12a.json")
+      .then((response) => response.json())
+      .then((data) => {
+          mineData = data;
+          let table = document.getElementsByTagName('table');
+          let tbody = table[0].children[1];
+          tbody.children[2].children[0].innerText = mineData['fname'];
+          tbody.children[2].children[1].innerText = mineData['lname'];
+          tbody.children[2].children[2].innerText = mineData['email'];
+          tbody.children[2].children[3].innerText = mineData['age'];
+          tbody.children[2].children[4].innerText = mineData['country'];
+          tbody.children[2].children[5].innerText = mineData['gender'];
+          tbody.children[2].children[6].innerText = mineData['food'];
+          tbody.children[2].children[7].innerText = mineData['moNa'] + "%";
+          tbody.children[2].children[8].innerText = mineData['alTe'] + "%";
+          tbody.children[2].children[9].innerText = mineData['alPo'] + "%";
+          tbody.children[2].children[10].innerText = mineData['snVi'] + "%";
+          tbody.children[2].children[11].innerText = mineData['snTe'] + "%";
+          tbody.children[2].children[12].innerText = mineData['plFo'] + "%";
+          tbody.children[2].children[13].innerText = mineData['riTe'] + "%";
+          tbody.children[2].children[14].innerText = mineData['faFl'] + "%";
+          tbody.children[2].children[15].innerText = mineData['noKo'] + "%";
+          tbody.children[2].children[16].innerText = mineData['aB'] + "%";
+          tbody.children[2].children[17].innerText = mineData['avAlko'] + "%";
+       });
+
+       fetch("https://bacit.info/hwr/20221215131734-6079904419c71f24d37330207f382fb7.json")
+      .then((response) => response.json())
+      .then((data) => {
+          mineData = data;
+          let table = document.getElementsByTagName('table');
+          let tbody = table[0].children[1];
+          tbody.children[3].children[0].innerText = mineData['fname'];
+          tbody.children[3].children[1].innerText = mineData['lname'];
+          tbody.children[3].children[2].innerText = mineData['email'];
+          tbody.children[3].children[3].innerText = mineData['age'];
+          tbody.children[3].children[4].innerText = mineData['country'];
+          tbody.children[3].children[5].innerText = mineData['gender'];
+          tbody.children[3].children[6].innerText = mineData['food'];
+          tbody.children[3].children[7].innerText = mineData['moNa'] + "%";
+          tbody.children[3].children[8].innerText = mineData['alTe'] + "%";
+          tbody.children[3].children[9].innerText = mineData['alPo'] + "%";
+          tbody.children[3].children[10].innerText = mineData['snVi'] + "%";
+          tbody.children[3].children[11].innerText = mineData['snTe'] + "%";
+          tbody.children[3].children[12].innerText = mineData['plFo'] + "%";
+          tbody.children[3].children[13].innerText = mineData['riTe'] + "%";
+          tbody.children[3].children[14].innerText = mineData['faFl'] + "%";
+          tbody.children[3].children[15].innerText = mineData['noKo'] + "%";
+          tbody.children[3].children[16].innerText = mineData['aB'] + "%";
+          tbody.children[3].children[17].innerText = mineData['avAlko'] + "%";
+       });
+
+       fetch("https://bacit.info/hwr/20221215132130-e59a12756deb5e0deb330c01c5ff4a71.json")
+      .then((response) => response.json())
+      .then((data) => {
+          mineData = data;
+          let table = document.getElementsByTagName('table');
+          let tbody = table[0].children[1];
+          tbody.children[4].children[0].innerText = mineData['fname'];
+          tbody.children[4].children[1].innerText = mineData['lname'];
+          tbody.children[4].children[2].innerText = mineData['email'];
+          tbody.children[4].children[3].innerText = mineData['age'];
+          tbody.children[4].children[4].innerText = mineData['country'];
+          tbody.children[4].children[5].innerText = mineData['gender'];
+          tbody.children[4].children[6].innerText = mineData['food'];
+          tbody.children[4].children[7].innerText = mineData['moNa'] + "%";
+          tbody.children[4].children[8].innerText = mineData['alTe'] + "%";
+          tbody.children[4].children[9].innerText = mineData['alPo'] + "%";
+          tbody.children[4].children[10].innerText = mineData['snVi'] + "%";
+          tbody.children[4].children[11].innerText = mineData['snTe'] + "%";
+          tbody.children[4].children[12].innerText = mineData['plFo'] + "%";
+          tbody.children[4].children[13].innerText = mineData['riTe'] + "%";
+          tbody.children[4].children[14].innerText = mineData['faFl'] + "%";
+          tbody.children[4].children[15].innerText = mineData['noKo'] + "%";
+          tbody.children[4].children[16].innerText = mineData['aB'] + "%";
+          tbody.children[4].children[17].innerText = mineData['avAlko'] + "%";
+       });
+</script>
+
+<script>
+
+// DataID-Innfelt 
+var timetrxidPASTE=document.getElementById("timetrxidPASTE");
+var btnData=document.getElementById("btnData");
+const results = document.querySelector('.results pre');
+
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+// Bakgrunn
+ctx.fillStyle = "#090979";
+ctx.fillRect(0, 0, 1000, 1000);
+
+// Overskrift
+ctx.font = "20px Arial";
+ctx.fillStyle = "white";
+ctx.fillText("Visualisering av HowWeRoll data", 350, 50);
+
+// Streker mellom parametere
+ctx.beginPath();
+ctx.moveTo(300, 150);
+ctx.lineTo(700, 150);
+ctx.strokeStyle = "white";
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(300, 250);
+ctx.lineTo(700, 250);
+ctx.strokeStyle = "white";
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(300, 350);
+ctx.lineTo(700, 350);
+ctx.strokeStyle = "white";
+ctx.stroke()
+
+ctx.beginPath();
+ctx.moveTo(300, 450);
+ctx.lineTo(700, 450);
+ctx.strokeStyle = "white";
+ctx.stroke()
+
+ctx.beginPath();
+ctx.moveTo(300, 550);
+ctx.lineTo(700, 550);
+ctx.strokeStyle = "white";
+ctx.stroke()
+
+ctx.beginPath();
+ctx.moveTo(300, 650);
+ctx.lineTo(700, 650);
+ctx.strokeStyle = "white";
+ctx.stroke()
+
+ctx.beginPath();
+ctx.moveTo(300, 750);
+ctx.lineTo(700, 750);
+ctx.strokeStyle = "white";
+ctx.stroke()
+
+ctx.beginPath();
+ctx.moveTo(300, 850);
+ctx.lineTo(700, 850);
+ctx.strokeStyle = "white";
+ctx.stroke()
+
+ctx.beginPath();
+ctx.moveTo(300, 950);
+ctx.lineTo(700, 950);
+ctx.strokeStyle = "white";
+ctx.stroke()
+
+ctx.beginPath();
+ctx.moveTo(300, 1050);
+ctx.lineTo(700, 1050);
+ctx.strokeStyle = "white";
+ctx.stroke()
+
+ctx.beginPath();
+ctx.moveTo(300, 1150);
+ctx.lineTo(700, 1150);
+ctx.strokeStyle = "white";
+ctx.stroke()
+
+// Navn på parametere
+ctx.fillText("Morgenfugl", 170, 160)
+ctx.fillText("Natteravn", 740, 160)
+
+ctx.fillText("Alene", 170, 260)
+ctx.fillText("Team", 740, 260)
+
+ctx.fillText("Må vite alt", 170, 360)
+ctx.fillText("Kom til poenget", 740, 360)
+
+ctx.fillText("Snakke ut", 170, 460)
+ctx.fillText("Komme seg videre", 740, 460)
+
+ctx.fillText("Snakke før man tenker", 60, 560)
+ctx.fillText("Tenke før man snakker", 740, 560)
+
+ctx.fillText("Planlegge", 170, 660)
+ctx.fillText("Forstyrr meg", 740, 660)
+
+ctx.fillText("Ringe", 170, 760)
+ctx.fillText("Tekste", 740, 760)
+
+ctx.fillText("Fast", 170, 860)
+ctx.fillText("Fleksibel", 740, 860)
+
+ctx.fillText("Noob", 170, 960)
+ctx.fillText("Kodeguru", 740, 960)
+
+ctx.fillText("A-menneske", 170, 1060)
+ctx.fillText("B-menneske", 740, 1060)
+
+ctx.fillText("Avholds", 170, 1160)
+ctx.fillText("Alkoholiker", 740, 1160)
+
+
+// Navn på deltakere
+ctx.fillText("Henrik", 48, 37)
+ctx.fillText("Lars", 48, 77)
+ctx.fillText("Christian", 48, 117)
+ctx.fillText("Joakim", 48, 157)
+ctx.fillText("Tobias", 48, 197)
+
+
+// Tegne sirkler ved siden av deltakere
+var X = 30;
+var Y = 30;
+var R = 10;
+ctx.beginPath();
+ctx.arc(X, Y, R, 0, 2 * Math.PI);
+ctx.fillStyle = "red";
+ctx.fill();
+ctx.lineWidth = 2;
+ctx.strokeStyle = "white";
+ctx.stroke();
+ctx.closePath();
+
+var X = 30;
+var Y = 70;
+var R = 10;
+ctx.beginPath();
+ctx.arc(X, Y, R, 0, 2 * Math.PI);
+ctx.fillStyle = "green";
+ctx.fill();
+ctx.lineWidth = 2;
+ctx.strokeStyle = "white";
+ctx.stroke();
+ctx.closePath();
+
+var X = 30;
+var Y = 110;
+var R = 10;
+ctx.beginPath();
+ctx.arc(X, Y, R, 0, 2 * Math.PI);
+ctx.fillStyle = "orange";
+ctx.fill();
+ctx.lineWidth = 2;
+ctx.strokeStyle = "white";
+ctx.stroke();
+ctx.closePath();
+
+var X = 30;
+var Y = 150;
+var R = 10;
+ctx.beginPath();
+ctx.arc(X, Y, R, 0, 2 * Math.PI);
+ctx.fillStyle = "pink";
+ctx.fill();
+ctx.lineWidth = 2;
+ctx.strokeStyle = "white";
+ctx.stroke();
+
+var X = 30;
+var Y = 190;
+var R = 10;
+ctx.beginPath();
+ctx.arc(X, Y, R, 0, 2 * Math.PI);
+ctx.fillStyle = "blue";
+ctx.fill();
+ctx.lineWidth = 2;
+ctx.strokeStyle = "white";
+ctx.stroke();
+
+// Henrik sine data
+fetch("https://bacit.info/hwr/20221114135337-487061a046a7659e7c0b17a5ac794af1.json", {cache: 'no-cache'})
+.then(response => response.json())
+.then(data => {
+  console.log(data);
+
+  var X = 300 + parseInt(data.moNa, 10)*4;
+  var Y = 150;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "red";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.alTe, 10)*4;
+  var Y = 250;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "red";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.alPo, 10)*4;
+  var Y = 350;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "red";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.snVi, 10)*4;
+  var Y = 450;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "red";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.snTe, 10)*4;
+  var Y = 550;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "red";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.plFo, 10)*4;
+  var Y = 650;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "red";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.riTe, 10)*4;
+  var Y = 750;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "red";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.faFl, 10)*4;
+  var Y = 850;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "red";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.noKo, 10)*4;
+  var Y = 950;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "red";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.aB, 10)*4;
+  var Y = 1050;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "red";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.avAlko, 10)*4;
+  var Y = 1150;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "red";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+});
+
+// Lars sine data
+fetch("https://bacit.info/hwr/20221114145027-fdce5b07a9015eba61002c5df0561bcb.json", {cache: 'no-cache'})
+.then(response => response.json())
+.then(data => {
+  console.log(data);
+
+  var X = 300 + parseInt(data.moNa, 10)*4;
+  var Y = 150;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "green";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.alTe, 10)*4;
+  var Y = 250;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "green";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.alPo, 10)*4;
+  var Y = 350;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "green";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.snVi, 10)*4;
+  var Y = 450;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "green";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.snTe, 10)*4;
+  var Y = 550;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "green";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.plFo, 10)*4;
+  var Y = 650;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "green";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.riTe, 10)*4;
+  var Y = 750;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "green";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.faFl, 10)*4;
+  var Y = 850;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "green";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.noKo, 10)*4;
+  var Y = 950;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "green";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.aB, 10)*4;
+  var Y = 1050;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "green";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.avAlko, 10)*4;
+  var Y = 1150;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "green";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+});
+
+// Christian sine data
+fetch("https://bacit.info/hwr/20221114150727-1d3261c7fae3e5427402e08e4068c12a.json", {cache: 'no-cache'})
+.then(response => response.json())
+.then(data => {
+  console.log(data);
+
+  var X = 300 + parseInt(data.moNa, 10)*4;
+  var Y = 150;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "orange";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.alTe, 10)*4;
+  var Y = 250;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "orange";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.alPo, 10)*4;
+  var Y = 350;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "orange";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.snVi, 10)*4;
+  var Y = 450;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "orange";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.snTe, 10)*4;
+  var Y = 550;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "orange";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.plFo, 10)*4;
+  var Y = 650;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "orange";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.riTe, 10)*4;
+  var Y = 750;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "organge";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.faFl, 10)*4;
+  var Y = 850;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "orange";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.noKo, 10)*4;
+  var Y = 950;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "orange";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.aB, 10)*4;
+  var Y = 1050;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "orange";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.avAlko, 10)*4;
+  var Y = 1150;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "orange";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+});
+
+// Joakim sine data
+fetch("https://bacit.info/hwr/20221215131734-6079904419c71f24d37330207f382fb7.json", {cache: 'no-cache'})
+.then(response => response.json())
+.then(data => {
+  console.log(data);
+
+  var X = 300 + parseInt(data.moNa, 10)*4;
+  var Y = 150;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "pink";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.alTe, 10)*4;
+  var Y = 250;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "pink";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.alPo, 10)*4;
+  var Y = 350;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "pink";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.snVi, 10)*4;
+  var Y = 450;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "pink";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.snTe, 10)*4;
+  var Y = 550;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "pink";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.plFo, 10)*4;
+  var Y = 650;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "pink";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.riTe, 10)*4;
+  var Y = 750;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "pink";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.faFl, 10)*4;
+  var Y = 850;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "pink";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.noKo, 10)*4;
+  var Y = 950;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "pink";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.aB, 10)*4;
+  var Y = 1050;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "pink";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.avAlko, 10)*4;
+  var Y = 1150;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "pink";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+});
+
+// Tobias sine data
+fetch("https://bacit.info/hwr/20221215132130-e59a12756deb5e0deb330c01c5ff4a71.json", {cache: 'no-cache'})
+.then(response => response.json())
+.then(data => {
+  console.log(data);
+
+  var X = 300 + parseInt(data.moNa, 10)*4;
+  var Y = 150;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "blue";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.alTe, 10)*4;
+  var Y = 250;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "blue";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.alPo, 10)*4;
+  var Y = 350;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "blue";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.snVi, 10)*4;
+  var Y = 450;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "blue";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.snTe, 10)*4;
+  var Y = 550;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "blue";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.plFo, 10)*4;
+  var Y = 650;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "blue";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.riTe, 10)*4;
+  var Y = 750;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "blue";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.faFl, 10)*4;
+  var Y = 850;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "blue";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.noKo, 10)*4;
+  var Y = 950;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "blue";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.aB, 10)*4;
+  var Y = 1050;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "blue";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+
+  var X = 300 + parseInt(data.avAlko, 10)*4;
+  var Y = 1150;
+  var R = 10;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.fillStyle = "blue";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "white";
+  ctx.stroke();
+  ctx.closePath();
+});
+
+// Funksjon til knapp for å legge til ny data
+
+btnData.onclick=function () {
+
+// Når noen limer inn en ID i input-feltet legges det til ny data
+  fetch("https://bacit.info/hwr/" + timetrxidPASTE.value + ".json", {cache: 'no-cache'})
+      .then(response => response.json())
+      .then(data => {
+          console.log(data);
+          results.innerText = JSON.stringify(data, null, 2);
+          document.querySelector("#info").innerText = "- Info om deg -" + "\nFornavn: " + data.fname + "\nEtternavn: " + data.lname + "\nE-post: " + data.email + "\nAlder: " + data.age;
+
+          ctx.fillStyle = "white";
+          ctx.fillText(data.fname, 48, 237);
+          var X = 30;
+          var Y = 230;
+          var R = 10;
+          ctx.beginPath();
+          ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+          ctx.fillStyle = "yellow";
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = "white";
+          ctx.stroke();
+          ctx.closePath();
+
+          var X = 300 + parseInt(data.moNa, 10)*4;
+          var Y = 150;
+          var R = 10;
+          ctx.beginPath();
+          ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+          ctx.fillStyle = "yellow";
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = "white";
+          ctx.stroke();
+          ctx.closePath();
+
+          var X = 300 + parseInt(data.alTe, 10)*4;
+          var Y = 250;
+          var R = 10;
+          ctx.beginPath();
+          ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+          ctx.fillStyle = "yellow";
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = "white";
+          ctx.stroke();
+          ctx.closePath();
+
+          var X = 300 + parseInt(data.alPo, 10)*4;
+          var Y = 350;
+          var R = 10;
+          ctx.beginPath();
+          ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+          ctx.fillStyle = "yellow";
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = "white";
+          ctx.stroke();
+          ctx.closePath();
+
+          var X = 300 + parseInt(data.snVi, 10)*4;
+          var Y = 450;
+          var R = 10;
+          ctx.beginPath();
+          ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+          ctx.fillStyle = "yellow";
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = "white";
+          ctx.stroke();
+          ctx.closePath();
+
+          var X = 300 + parseInt(data.snTe, 10)*4;
+          var Y = 550;
+          var R = 10;
+          ctx.beginPath();
+          ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+          ctx.fillStyle = "yellow";
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = "white";
+          ctx.stroke();
+          ctx.closePath();
+
+          var X = 300 + parseInt(data.plFo, 10)*4;
+          var Y = 650;
+          var R = 10;
+          ctx.beginPath();
+          ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+          ctx.fillStyle = "yellow";
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = "white";
+          ctx.stroke();
+          ctx.closePath();
+
+          var X = 300 + parseInt(data.riTe, 10)*4;
+          var Y = 750;
+          var R = 10;
+          ctx.beginPath();
+          ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+          ctx.fillStyle = "yellow";
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = "white";
+          ctx.stroke();
+          ctx.closePath();
+
+          var X = 300 + parseInt(data.faFl, 10)*4;
+          var Y = 850;
+          var R = 10;
+          ctx.beginPath();
+          ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+          ctx.fillStyle = "yellow";
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = "white";
+          ctx.stroke();
+          ctx.closePath();
+
+          var X = 300 + parseInt(data.noKo, 10)*4;
+          var Y = 950;
+          var R = 10;
+          ctx.beginPath();
+          ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+          ctx.fillStyle = "yellow";
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = "white";
+          ctx.stroke();
+          ctx.closePath();
+
+          var X = 300 + parseInt(data.aB, 10)*4;
+          var Y = 1050;
+          var R = 10;
+          ctx.beginPath();
+          ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+          ctx.fillStyle = "yellow";
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = "white";
+          ctx.stroke();
+          ctx.closePath();
+
+          var X = 300 + parseInt(data.avAlko, 10)*4;
+          var Y = 1150;
+          var R = 10;
+          ctx.beginPath();
+          ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+          ctx.fillStyle = "yellow";
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = "white";
+          ctx.stroke();
+          ctx.closePath();
+      });
+}
+</script>
+</body>
+</html>

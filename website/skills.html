@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>Henrik</title>
+
+<style>
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #292929;
+  overflow: hidden;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  width: 319px;
+  display: table;
+  margin: 0 auto;
+  transform: translateY(-50%);
+}
+
+nav a {
+  position: relative;
+  width: 33.333%;
+  display: table-cell;
+  text-align: center;
+  color: #949494;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: 0.2s ease color;
+}
+
+nav a:before,
+nav a:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 0.2s ease transform;
+}
+
+nav a:before {
+  top: 0;
+  left: 10px;
+  width: 6px;
+  height: 6px;
+}
+
+nav a:after {
+  top: 5px;
+  left: 18px;
+  width: 4px;
+  height: 4px;
+}
+
+nav a:nth-child(1):before {
+  background-color: yellow;
+}
+
+nav a:nth-child(1):after {
+  background-color: red;
+}
+
+nav a:nth-child(2):before {
+  background-color: #00e2ff;
+}
+
+nav a:nth-child(2):after {
+  background-color: #89ff00;
+}
+
+nav a:nth-child(3):before {
+  background-color: purple;
+}
+
+nav a:nth-child(3):after {
+  background-color: palevioletred;
+}
+
+#indicator {
+  position: absolute;
+  left: 70%;
+  bottom: 0;
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 5px;
+  transition: 0.2s ease left;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+nav a:hover:before,
+nav a:hover:after {
+  transform: scale(1);
+}
+
+nav a:nth-child(1):hover ~ #indicator {
+  left: 5%;
+  background: linear-gradient(130deg, yellow, red);
+}
+
+nav a:nth-child(2):hover ~ #indicator {
+  left: 34%;
+  background: linear-gradient(130deg, #00e2ff, #89ff00);
+}
+
+nav a:nth-child(3):hover ~ #indicator {
+  left: 70%;
+  background: linear-gradient(130deg, purple, palevioletred);
+}
+
+.skogenimg:hover {
+  transform: scale(1.02);
+}
+
+.skogenimg {
+  border-radius: 50%;
+  box-shadow: rgb(0 0 0 / 30%) 0px 19px 38px, rgb(0 0 0 / 22%) 0px 15px 12px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.name {
+  text-align: center;
+  color: #949494;
+}
+
+.skillsTable {
+  position: absolute;
+  top: 72%;
+  right: 0;
+  left: 0;
+  width: 500px;
+  display: table;
+  margin: 0 auto;
+  transform: translateY(-50%);
+  color: #949494;
+  text-align: center;
+}
+
+.footer {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  color: #949494;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: small;
+} 
+
+.footer a {
+color: #949494;
+text-decoration: none;
+}
+
+.footer a:hover {
+text-decoration: underline;
+text-decoration-style: dashed;
+}
+
+/* Popup */
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal-content {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 30rem;
+    height: 20rem;
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 2px black, 0 0 12.5px purple, 0 0 2.5px palevioletred;
+}
+
+.close-button {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+}
+
+.close-button:hover {
+    background-color: lightgrey;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.popup-img {
+  width: 30px;
+}
+
+/* Table */ 
+
+table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 70%;
+    right: 0;
+    left: 0;
+    display: table;
+    transform: translateY(-50%);
+    background-color: white;
+    }
+
+    table thead tr {
+    background: linear-gradient(130deg, purple, palevioletred);
+    color: #ffffff;
+    text-align: left;
+    }
+
+    table th,
+    table td {
+    padding: 12px 15px;
+    }
+
+    table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    }
+
+    table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+    }
+
+    table tbody tr:last-of-type {
+    border-bottom: 2px solid purple;
+    }
+
+    table tbody tr.active-row {
+    font-weight: bold;
+    background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+    }
+
+    .levelText {
+      position: absolute;
+      top: 55%;
+      right: 0;
+      left: 0;
+      width: 500px;
+      display: table;
+      margin: 0 auto;
+      transform: translateY(-50%);
+      color: #949494;
+      text-align: center;
+      font-size: x-small;
+    }
+</style>
+
+<body>
+
+  <img src="img/skogengrey.png" width="200" height="200" class="skogenimg">
+  <div class="name"><p><b>Henrik Skogstad</b></p><small>22y from Stavern</small></div>
+  <nav>
+    <a href="index.html">About</a>
+    <a href="socials.html">Socials</a>
+    <a href="skills.html">Skills</a>
+    <div id="indicator"></div>
+  </nav>
+  <div class="levelText"><p>Choose between these levels: Low, Medium, High</p></div>
+  <div class="skillsTable">
+  <table>
+    <thead>
+    <tr>
+      <th>Skills</th>
+      <th>Level</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Markdown</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>HTML</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td>CSS</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td>Javascript</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <td>Go</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Low</td>
+    </tr>
+    </tbody>
+  </table>
+<div class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <br><br>
+        <img class="popup-img" src="img/coding-icon.png">
+        <p>Credits</p>
+        <p><small>Website created by</small></p>
+        <p><b>Henrik</b><br>Web design & development</p>
+        <br><br>
+        <p><small>Made with ❤</small></p>
+        <p><small>This website is a non-profit educational project</small></p>
+    </div>
+</div>
+
+</div>
+  <div class="footer">
+    <p>Copyright &copy; 2022<br><b><a href="#" class="trigger">Credits</a></b></p>
+  </div>
+</body>
+
+<script>
+const modal = document.querySelector(".modal");
+const trigger = document.querySelector(".trigger");
+const closeButton = document.querySelector(".close-button");
+
+function toggleModal() {
+    modal.classList.toggle("show-modal");
+}
+
+function windowOnClick(event) {
+    if (event.target === modal) {
+        toggleModal();
+    }
+}
+
+trigger.addEventListener("click", toggleModal);
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
+</script>
+</html>
