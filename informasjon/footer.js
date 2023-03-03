@@ -1,2 +1,1 @@
-document.getElementById("edited").innerHTML = "03.03.2023";
-document.getElementById("name").innerHTML = "Henrik";
+document.getElementById("editedDateAuthor").innerHTML = "Sist endret 3/3-23 av Henrik";
