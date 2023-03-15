@@ -133,13 +133,15 @@ body {
     text-align: center;
 }
 
-.danger {
+#danger {
     background-color: #ffdddd;
     border-left: 6px solid #f44336;
     width: 50%;
     margin-left: 5%;
     padding: 1px;
     padding-left: 10px;
+    padding-bottom: 15px;
+    padding-top: 15px;
 }
 
 .info {
@@ -212,4 +214,38 @@ body {
   padding-top: 10px;
   padding-bottom: 10px;
   box-shadow: 0 0 0 3px rgb(0 0 0 / 6%);
+}
+
+.regndråpe {
+  position: fixed;
+  top: -10px;
+  font-size: 20px;
+  color: #fff;
+  opacity: 0.8;
+  animation: regn 5s linear infinite; /* endre animasjonstid */
+}
+@keyframes regn {
+  0% {
+    top: -10px;
+  }
+  100% {
+    top: 100vh;
+  }
+}
+
+.removeRain {
+  font-size: 17px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.removeRain:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dashed;
 }

@@ -38,15 +38,14 @@
             <a href="linkedin-tips.html">LinkedIn Tips</a>
           </div>
         </div>
+        <button class="removeRain" onclick="stopRegn()">Klikk her for å fjerne øl 🍻</button>
         <span class="uia-text">Universitetet i Agder</span>
     </div>
 
       <br>
       <br>
 
-      <div class="danger">
-        <p><strong>Gratulerer</strong> med din studieplass ved IT og informasjonssystemer her på UiA! </p>
-      </div>
+      <div id="danger"><b>Gratulerer</b> med studieplass på studiet IT og informasjonssystemer ved UiA!</div>
 
       <br>
 
@@ -105,4 +104,23 @@
     <div class="editedBy">Formålet med nettsiden er å gi førsteårsstudenter nyttig informasjon samlet på en plass</div>
 </body>
 <script src="footer.js"></script>
+
+<script src="rain.js"></script>
+
+<script>
+  var tekst1 = "<b>Gratulerer</b> med studieplass på studiet IT og informasjonssystemer ved UiA!";
+  var tekst2 = "Studiestart er <b>14. august</b>. Følg med på nedtellingen nedenfor!";
+  var tid = 10000; // endre tiden (i millisekunder) etter behov
+
+  setInterval(function() {
+    var div = document.getElementById("danger");
+    if (div.innerHTML === tekst1) {
+      div.innerHTML = tekst2;
+    } else {
+      div.innerHTML = tekst1;
+    }
+  }, tid);
+</script>
+
+
 </html>
