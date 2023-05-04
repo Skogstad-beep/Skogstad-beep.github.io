@@ -1,1 +1,0 @@
-document.getElementById("editedDateAuthor").innerHTML = "Sist endret 3/3-23 av Henrik";
