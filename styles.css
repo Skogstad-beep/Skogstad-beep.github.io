@@ -28,4 +28,12 @@
         }
         .mainText i {
             font-size: 32px;
+            margin-bottom: 10px;
         }
+
+        .mainText a {
+            font-size: 32px;
+            text-decoration: none;
+        }
+
+
