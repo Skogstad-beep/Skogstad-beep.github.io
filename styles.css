@@ -25,9 +25,28 @@ body {
   font-family: monospace;
 }
 
-.typewriter a {
-  color: #fff;
-  font-family: monospace;
+/* unvisited link */
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+/* selected link */
+a:active {
+  color: white;
+  text-decoration: underline;
 }
 
 /* The typing effect */
