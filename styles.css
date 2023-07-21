@@ -1,6 +1,6 @@
 /* GLOBAL STYLES */
 body {
-  background: #333;
+  background: black;
   padding-top: 5em;
   display: flex;
   justify-content: center;
@@ -43,7 +43,6 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: #263238;
     text-align: center;
     color: #f4f4f4;
 }
