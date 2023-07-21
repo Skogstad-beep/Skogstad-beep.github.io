@@ -25,6 +25,11 @@ body {
   font-family: monospace;
 }
 
+.typewriter a {
+  color: #fff;
+  font-family: monospace;
+}
+
 /* The typing effect */
 @keyframes typing {
   from { width: 0 }
