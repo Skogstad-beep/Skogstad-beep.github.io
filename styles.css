@@ -25,6 +25,10 @@ body {
   font-family: monospace;
 }
 
+a {
+  word-spacing: 30px;
+}
+
 /* unvisited link */
 a:link {
   color: white;
