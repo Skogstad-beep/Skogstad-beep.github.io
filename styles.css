@@ -25,10 +25,6 @@ body {
   font-family: monospace;
 }
 
-a {
-  word-spacing: 30px;
-}
-
 /* unvisited link */
 a:link {
   color: white;
@@ -82,13 +78,13 @@ a:active {
 
 .icons a{
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 0.5rem;
     margin: 0.5rem;
     color: #f4f4f4;
 }
 
 .company-name{
-    font-size: 1.6rem;
+    font-size: 0.5rem;
     margin-top: 0.5rem;
 }
 
