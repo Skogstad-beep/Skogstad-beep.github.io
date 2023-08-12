@@ -119,3 +119,12 @@ a:active {
   background-color: #f44336;
   color: white;
 }
+
+#back-link {
+position: absolute;
+top: 10px;
+left: 10px;
+text-decoration: none;
+font-size: 18px;
+color: #000;
+}
