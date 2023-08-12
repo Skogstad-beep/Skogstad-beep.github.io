@@ -99,3 +99,9 @@ a:active {
     font-size: 50%;
     }
 }    
+
+#mailbutton{
+  background-color: white;
+  color: black;
+  border-radius: 25px;
+  }
