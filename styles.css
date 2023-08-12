@@ -100,7 +100,7 @@ a:active {
     }
 }    
 
-.button{
+#mailbutton{
   background-color: red;
   border: none;
   color: white;
